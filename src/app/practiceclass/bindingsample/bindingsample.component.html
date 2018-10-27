@@ -1,0 +1,25 @@
+<div>
+
+  <!-- Interpolation -->
+  <h1> Welcome {{name}}</h1>
+
+  <!-- Property binding -->
+  User ID : <input type="text" [value]="defaultUserID" />
+
+  <!-- Event biniding -->
+
+  Name : <input type="text" [value]="name" (change)="handleChangeName($event)" /> <br><br>
+
+  <button (click)="handleResetName($event)"> Reset Name </button> <br><br>
+
+  Subject : <input type="text" [(ngModel)]="subject">
+
+  <br>
+  <hr>
+  Science subject name changed to : {{subject}}
+
+
+
+
+
+</div>
