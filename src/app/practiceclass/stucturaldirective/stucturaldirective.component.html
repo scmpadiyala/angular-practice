@@ -7,7 +7,7 @@
 
 
   <ol>
-    <li *ngFor="let name of names"> {{name}}</li>
+    <li *ngFor="let student of students"> {{student.name}} || {{student.id}} || {{student.gender}}</li>
   </ol>
 
 
@@ -26,9 +26,9 @@
   <hr>
   <h3> Switch Sample</h3>
 
-  Student Categoty : <input type="text" [(ngModel)]="studentCategory" />
+  Student Categoty : <input type="text" [(ngModel)]="myStudent.studentCategory" />
 
-  <div [ngSwitch]="studentCategory">
+  <div [ngSwitch]="myStudent.studentCategory">
 
     <ol *ngSwitchCase="1">
       <li *ngFor="let subject of primarySubjects"> {{subject}}</li>
