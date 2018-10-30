@@ -6,16 +6,18 @@ import { AppComponent } from "./app.component";
 import { SampleComponent } from "./practiceclass/sample/sample.component";
 import { TestComponent } from "./practiceclass/test/test.component";
 import { BindingsampleComponent } from "./practiceclass/bindingsample/bindingsample.component";
+import { StucturaldirectiveComponent } from './practiceclass/stucturaldirective/stucturaldirective.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SampleComponent,
     TestComponent,
-    BindingsampleComponent
+    BindingsampleComponent,
+    StucturaldirectiveComponent
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [BindingsampleComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

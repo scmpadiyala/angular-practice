@@ -1,0 +1,52 @@
+<div>
+
+  <h1> Wleocme to Stuctural diractive session</h1>
+  <div *ngIf="isPrimaryStudent">
+    Welcome to If - True block
+  </div>
+
+
+  <ol>
+    <li *ngFor="let name of names"> {{name}}</li>
+  </ol>
+
+
+  <div *ngIf="isPass then trueblock else falseblock">
+    Welcome to If - True block
+  </div>
+
+  <div>
+    isPass : <input type="text" [(ngModel)]="isPass" />
+  </div>
+
+  <ng-template #trueblock> True Block of content </ng-template>
+
+  <ng-template #falseblock> False Block of content </ng-template>
+
+  <hr>
+  <h3> Switch Sample</h3>
+
+  Student Categoty : <input type="text" [(ngModel)]="studentCategory" />
+
+  <div [ngSwitch]="studentCategory">
+
+    <ol *ngSwitchCase="1">
+      <li *ngFor="let subject of primarySubjects"> {{subject}}</li>
+
+    </ol>
+
+
+    <ol *ngSwitchCase="2">
+      <li *ngFor="let subject of secondarySubjects"> {{subject}}</li>
+
+    </ol>
+
+    <ol *ngSwitchDefault>
+      <li> Non Category</li>
+    </ol>
+
+  </div>
+
+
+
+</div>
