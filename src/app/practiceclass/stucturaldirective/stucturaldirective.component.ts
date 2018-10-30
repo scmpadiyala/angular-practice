@@ -1,11 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
 class Student {
-
   studentCategory = 1;
-
 }
-
 
 @Component({
   selector: "app-stucturaldirective",
@@ -19,11 +16,11 @@ export class StucturaldirectiveComponent implements OnInit {
 
   names = ["Ram", "sam", "Sasi", "ABC"];
 
-
-  students = [{name: "Ram", id: 432432, gender:"male"}, {name: "sasi", id: 432432, gender:"female"},
-  {name: "John", id: 4324332, gender:"male"}]
-
-
+  students = [
+    { name: "ram", id: 432432, gender: "male", dob: "10-10-18" },
+    { name: "sasi", id: 432432, gender: "female" },
+    { name: "john", id: 4324332, gender: "male" }
+  ];
 
   //studentCategory = 1; // 1 : Primary 2 : Secondary
 
