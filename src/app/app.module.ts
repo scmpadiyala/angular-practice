@@ -1,16 +1,23 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { RouterModule, Route } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { SampleComponent } from "./practiceclass/sample/sample.component";
 import { TestComponent } from "./practiceclass/test/test.component";
 import { BindingsampleComponent } from "./practiceclass/bindingsample/bindingsample.component";
-<<<<<<< HEAD
-import { StucturaldirectiveComponent } from './practiceclass/stucturaldirective/stucturaldirective.component';
-=======
-import { Bindingsample10Component } from './practiceclass/bindingsample10/bindingsample10.component';
->>>>>>> 0b4a3395d076b6edbd51fb9b686b9c4f0822e150
+import { StucturaldirectiveComponent } from "./practiceclass/stucturaldirective/stucturaldirective.component";
+import { HomeComponent } from "./practiceclass/routing/home/home.component";
+import { LoginComponent } from "./practiceclass/routing/login/login.component";
+import { MainbodyComponent } from "./practiceclass/routing/mainbody/mainbody.component";
+import { StudentManagementService } from "./practiceclass/services/student-management.service";
+
+const myRoutes = [
+  { path: "home", component: HomeComponent },
+  { path: "login", component: LoginComponent },
+  { path: "login/mainbody", component: MainbodyComponent }
+];
 
 @NgModule({
   declarations: [
@@ -18,18 +25,13 @@ import { Bindingsample10Component } from './practiceclass/bindingsample10/bindin
     SampleComponent,
     TestComponent,
     BindingsampleComponent,
-<<<<<<< HEAD
-    StucturaldirectiveComponent
+    StucturaldirectiveComponent,
+    HomeComponent,
+    LoginComponent,
+    MainbodyComponent
   ],
-  imports: [BrowserModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(myRoutes)],
+  providers: [StudentManagementService],
   bootstrap: [AppComponent]
-=======
-    Bindingsample10Component
-  ],
-  imports: [BrowserModule, FormsModule],
-  providers: [],
-  bootstrap: [Bindingsample10Component]
->>>>>>> 0b4a3395d076b6edbd51fb9b686b9c4f0822e150
 })
 export class AppModule {}
