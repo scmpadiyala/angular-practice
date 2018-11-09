@@ -1,0 +1,28 @@
+<div>
+  <h1>Order Form</h1>
+
+  <h3>Order Details for : {{ orderId }}</h3>
+
+  <!--
+    <form [formGroup]="orderFormGroup" (ngSubmit)="handleOrderForm(orderFormGroup.value)">
+      Firs Name : <input type="text" name="firstName" formControlName="firstName" /> <br />
+      Last Name : <input type="text" name="lastName" formControlName="lastName" /> <br />
+      <input type="submit" value="Confirm Order`" />
+    </form>
+  -->
+
+  <form
+    [formGroup]="orderFormGroup"
+    (ngSubmit)="handleOrderForm(orderFormGroup.value)"
+  >
+    Order Name :
+    <input type="text" name="orderName" formControlName="orderName" /> <br />
+    Customer Name :
+    <input type="text" name="customerName" formControlName="customerName" />
+    <br />
+    Delivery Date :
+    <input type="text" name="deliveryDate" formControlName="deliveryDate" />
+    <br />
+    <input type="submit" value="==> Confirm Order" />
+  </form>
+</div>

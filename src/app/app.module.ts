@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Route } from "@angular/router";
 
 import { AppComponent } from "./app.component";
@@ -12,11 +12,13 @@ import { HomeComponent } from "./practiceclass/routing/home/home.component";
 import { LoginComponent } from "./practiceclass/routing/login/login.component";
 import { MainbodyComponent } from "./practiceclass/routing/mainbody/mainbody.component";
 import { StudentManagementService } from "./practiceclass/services/student-management.service";
+import { ReactiveformsComponent } from "./practiceclass/reactiveforms/reactiveforms.component";
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
-  { path: "login/mainbody", component: MainbodyComponent }
+  { path: "login/mainbody", component: MainbodyComponent },
+  { path: "order/:ordId", component: ReactiveformsComponent }
 ];
 
 @NgModule({
@@ -28,9 +30,15 @@ const myRoutes = [
     StucturaldirectiveComponent,
     HomeComponent,
     LoginComponent,
-    MainbodyComponent
+    MainbodyComponent,
+    ReactiveformsComponent
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(myRoutes)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(myRoutes)
+  ],
   providers: [StudentManagementService],
   bootstrap: [AppComponent]
 })
