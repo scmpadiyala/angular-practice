@@ -1,0 +1,11 @@
+<div>
+  <h3>User List</h3>
+  <br />
+  <button (click)="handleGetUsers($event)">Get Users</button>
+
+  <h4>User Details from REST API</h4>
+
+  <ol>
+    <li *ngFor="let user of userList">{{ user.name }}</li>
+  </ol>
+</div>

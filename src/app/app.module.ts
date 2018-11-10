@@ -13,12 +13,15 @@ import { LoginComponent } from "./practiceclass/routing/login/login.component";
 import { MainbodyComponent } from "./practiceclass/routing/mainbody/mainbody.component";
 import { StudentManagementService } from "./practiceclass/services/student-management.service";
 import { ReactiveformsComponent } from "./practiceclass/reactiveforms/reactiveforms.component";
+import { RestapiComponent } from "./practiceclass/restapi/restapi.component";
+import { HttpClientModule } from "@angular/common/http";
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "login/mainbody", component: MainbodyComponent },
-  { path: "order/:ordId", component: ReactiveformsComponent }
+  { path: "order/:ordId", component: ReactiveformsComponent },
+  { path: "users", component: RestapiComponent }
 ];
 
 @NgModule({
@@ -31,13 +34,15 @@ const myRoutes = [
     HomeComponent,
     LoginComponent,
     MainbodyComponent,
-    ReactiveformsComponent
+    ReactiveformsComponent,
+    RestapiComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(myRoutes)
+    RouterModule.forRoot(myRoutes),
+    HttpClientModule
   ],
   providers: [StudentManagementService],
   bootstrap: [AppComponent]
