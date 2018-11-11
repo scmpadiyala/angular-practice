@@ -15,12 +15,16 @@ import { StudentManagementService } from "./practiceclass/services/student-manag
 import { ReactiveformsComponent } from "./practiceclass/reactiveforms/reactiveforms.component";
 import { RestapiComponent } from "./practiceclass/restapi/restapi.component";
 import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { DBConfig } from "./practiceclass/services/DBConfig";
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "login/mainbody", component: MainbodyComponent },
-  { path: "order/:ordId", component: ReactiveformsComponent },
+  // { path: "order/:ordId", component: ReactiveformsComponent },
+  { path: "order", component: ReactiveformsComponent },
   { path: "users", component: RestapiComponent }
 ];
 
@@ -43,6 +47,8 @@ const myRoutes = [
     ReactiveFormsModule,
     RouterModule.forRoot(myRoutes),
     HttpClientModule
+    AngularFireModule.initializeApp(DBConfig.config),
+    AngularFireDatabaseModule,
   ],
   providers: [StudentManagementService],
   bootstrap: [AppComponent]

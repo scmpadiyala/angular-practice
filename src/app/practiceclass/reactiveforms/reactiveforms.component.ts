@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { OrderMgmtService } from "../services/order-mgmt.service";
 import { Order } from "../datamodel/Order";
@@ -20,13 +20,22 @@ export class ReactiveformsComponent implements OnInit {
     private orderMgmtService: OrderMgmtService
   ) {}
 
+
+  /*
+   * Validation - sync & async, custom validation
+   * sub Group (Form Group ==> Form Group)
+   * Form Builder
+   */
   ngOnInit() {
     this.orderId = this.activatedRoute.snapshot.paramMap.get("ordId");
 
     console.log("Order ID : " + this.orderId);
 
-    let orderNameControl = new FormControl();
-    let customerNameControl = new FormControl();
+    let orderNameControl = new FormControl("", [
+      Validators.required,
+      Validators.minLength(5)
+    ]);
+    let customerNameControl = new FormControl("", [Validators.required]);
     let deliveryDateControl = new FormControl();
 
     this.orderFormGroup = new FormGroup({
@@ -55,7 +64,7 @@ export class ReactiveformsComponent implements OnInit {
     // orderDate;
     // items;
     // orderStatus;
- // Assigning the value Order data object
+    // Assigning the value Order data object
     let order: Order = {
       orderid: this.orderId,
       orderName: orderData.orderName,

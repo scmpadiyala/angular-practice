@@ -18,11 +18,25 @@
     Order Name :
     <input type="text" name="orderName" formControlName="orderName" /> <br />
     Customer Name :
-    <input type="text" name="customerName" formControlName="customerName" />
+    <input
+      type="text"
+      name="customerName"
+      placeholder="Enter your name"
+      formControlName="customerName"
+    />
     <br />
     Delivery Date :
-    <input type="text" name="deliveryDate" formControlName="deliveryDate" />
+    <input
+      type="text"
+      name="deliveryDate"
+      placeholder="10-Nov-2018"
+      formControlName="deliveryDate"
+    />
     <br />
-    <input type="submit" value="==> Confirm Order" />
+    <input
+      type="submit"
+      value="Confirm Order"
+      [disabled]="!orderFormGroup.valid"
+    />
   </form>
 </div>
