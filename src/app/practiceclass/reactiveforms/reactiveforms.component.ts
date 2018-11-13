@@ -14,12 +14,14 @@ export class ReactiveformsComponent implements OnInit {
    * FormControl ==> FormGroup
    */
   orderFormGroup: FormGroup;
+
+  orders;
+  currentOrder;
   orderId;
   constructor(
     private activatedRoute: ActivatedRoute,
     private orderMgmtService: OrderMgmtService
   ) {}
-
 
   /*
    * Validation - sync & async, custom validation
@@ -41,7 +43,14 @@ export class ReactiveformsComponent implements OnInit {
     this.orderFormGroup = new FormGroup({
       orderName: orderNameControl,
       customerName: customerNameControl,
-      deliveryDate: deliveryDateControl
+      deliveryDate: deliveryDateControl,
+
+      address: new FormGroup({
+        steet: new FormControl(),
+        city: new FormControl(),
+        country: new FormControl(),
+        pin: new FormControl()
+      })
     });
 
     // this.orderFormGroup = new FormGroup({
@@ -66,7 +75,7 @@ export class ReactiveformsComponent implements OnInit {
     // orderStatus;
     // Assigning the value Order data object
     let order: Order = {
-      orderid: this.orderId,
+      orderid: this.orderId++,
       orderName: orderData.orderName,
       customerName: orderData.customerName,
       orderStatus: "new",
@@ -75,5 +84,43 @@ export class ReactiveformsComponent implements OnInit {
     };
 
     this.orderMgmtService.createOrder(order);
+  }
+
+  fetchOrder() {
+    this.getOrderList();
+  }
+
+  getOrderList() {
+    this.orderMgmtService
+      .getOrderList()
+      .snapshotChanges()
+      .subscribe(orderData => {
+        // Translation/conversion of DB result collection into Order Object for further use
+
+        this.orders = orderData.map(orderEntry => {
+          return {
+            key: orderEntry.key,
+            ...orderEntry.payload.val()
+          };
+        });
+      });
+  }
+
+  fetchOrderwithKey(event) {
+    let key = event.target.value;
+
+    this.orderMgmtService
+      .getOrder(key)
+      .snapshotChanges()
+      .subscribe(orderData => {
+        // Translation/conversion of DB result collection into Order Object for further use
+
+        this.currentOrder = orderData.map(orderEntry => {
+          return {
+            key: orderEntry.key,
+            ...orderEntry.payload.val()
+          };
+        });
+      });
   }
 }

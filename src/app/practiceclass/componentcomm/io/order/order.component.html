@@ -1,0 +1,20 @@
+<div>
+  Parent - Order Form
+
+  <br />
+  <label
+    >Order Id :
+    <input
+      type="text"
+      [(ngModel)]="orderid"
+      (change)="handleOrderIdChange($event)"
+    />
+  </label>
+
+  <label>
+    Delivery type : {{deliveryMode}}
+  </label>
+
+  <hr />
+  <app-customer  [parentData]="orderid"  (deliveryMode)="handleDeliveryMode($event)"> </app-customer>
+</div>

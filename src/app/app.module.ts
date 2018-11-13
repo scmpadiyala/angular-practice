@@ -18,6 +18,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { DBConfig } from "./practiceclass/services/DBConfig";
+import { OrderComponent } from './practiceclass/componentcomm/io/order/order.component';
+import { CustomerComponent } from './practiceclass/componentcomm/io/customer/customer.component';
+import { InvoiceComponent } from './practiceclass/componentcomm/invoice/invoice.component';
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -26,6 +29,7 @@ const myRoutes = [
   // { path: "order/:ordId", component: ReactiveformsComponent },
   { path: "order", component: ReactiveformsComponent },
   { path: "users", component: RestapiComponent }
+  { path: "invoice", component: InvoiceComponent }
 ];
 
 @NgModule({
@@ -39,14 +43,17 @@ const myRoutes = [
     LoginComponent,
     MainbodyComponent,
     ReactiveformsComponent,
-    RestapiComponent
+    RestapiComponent,
+    OrderComponent,
+    CustomerComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(myRoutes),
-    HttpClientModule
+    HttpClientModule,
     AngularFireModule.initializeApp(DBConfig.config),
     AngularFireDatabaseModule,
   ],

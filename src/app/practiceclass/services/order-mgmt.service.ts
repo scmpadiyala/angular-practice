@@ -12,9 +12,21 @@ export class OrderMgmtService {
     this.orderFireList = this.myDB.list("Order");
   }
 
+  getOrderList() {
+    return this.orderFireList;
+  }
+
+  getOrder(key) {
+    return this.myDB.list("Order", ref => ref.orderByKey().equalTo(key));
+  }
+
   // create order
 
   createOrder(order: Order) {
+    // new Order id
+    console.log("Order id : Before " + this.orderid);
+    this.orderid = order.orderid;
+    console.log("Order id : After" + this.orderid);
     console.log("Inside Service : Order Name : " + order.orderName);
     console.log("Order Customer Name : " + order.customerName);
     console.log("Order Delv Name : " + order.orderDate);
@@ -34,5 +46,11 @@ export class OrderMgmtService {
 
     // delete
     this.orderFireList.remove("-LR-i9ZdT-j6FYF2QSZ0");
+  }
+
+  orderid = "Not known";
+
+  getOrderid() {
+    return this.orderid;
   }
 }

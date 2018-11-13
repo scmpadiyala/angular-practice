@@ -18,25 +18,50 @@
     Order Name :
     <input type="text" name="orderName" formControlName="orderName" /> <br />
     Customer Name :
-    <input
-      type="text"
-      name="customerName"
-      placeholder="Enter your name"
-      formControlName="customerName"
-    />
+    <input type="text" name="customerName" formControlName="customerName" />
     <br />
     Delivery Date :
-    <input
-      type="text"
-      name="deliveryDate"
-      placeholder="10-Nov-2018"
-      formControlName="deliveryDate"
-    />
+    <input type="text" name="deliveryDate" formControlName="deliveryDate" />
     <br />
+
+    <div formGroupName="address">
+      Street : <input type="text" formControlName="street" /> <br />
+      City :
+      <select formControlName="city">
+        <option value="Chennai"> Chennai</option>
+        <option value="Bang"> Bangalore</option>
+      </select>
+      <br />
+      Country : <input type="text" formControlName="country" /> <br />
+      Pin : <input type="text" formControlName="pin" /> <br />
+    </div>
+
+    <div>Order Items <button>Add Item</button></div>
+
     <input
       type="submit"
       value="Confirm Order"
       [disabled]="!orderFormGroup.valid"
     />
   </form>
+
+  <hr />
+  <button (click)="fetchOrder()">Load Orders</button>
+  <h3>Order List</h3>
+  <ol>
+    <li *ngFor="let order of orders">
+      {{ order.key }} | {{ order.customerName }} |
+    </li>
+  </ol>
+
+  <hr />
+  Enter Order Key : <input type="text" (change)="fetchOrderwithKey($event)" />
+
+  <h3>Order Retrived</h3>
+
+  <ol>
+    <li *ngFor="let order of currentOrder">
+      {{ order.key }} | {{ order.customerName }} |
+    </li>
+  </ol>
 </div>
