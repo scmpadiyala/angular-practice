@@ -1,0 +1,24 @@
+<div>
+  <h3>Accout Registration From</h3>
+  <form
+    [formGroup]="accountRegistrationForm"
+    (ngSubmit)="handleAccountRegistration(accountRegistrationForm.value)"
+  >
+    <label>
+      First Name : <input type="text" formControlName="firstName" />
+    </label>
+    <label>
+      Last Name : <input type="text" formControlName="lastName" />
+    </label>
+    <div formGroupName="address">
+      <label> Street : <input type="text" formControlName="street" /> </label>
+      <label> Country : <input type="text" formControlName="country" /> </label>
+      <label> Pin : <input type="text" formControlName="pin" /> </label>
+    </div>
+    <input
+      type="submit"
+      [disabled]="!accountRegistrationForm.valid"
+      value="Register Account"
+    />
+  </form>
+</div>

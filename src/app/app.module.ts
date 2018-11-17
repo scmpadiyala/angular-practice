@@ -21,6 +21,9 @@ import { DBConfig } from "./practiceclass/services/DBConfig";
 import { OrderComponent } from './practiceclass/componentcomm/io/order/order.component';
 import { CustomerComponent } from './practiceclass/componentcomm/io/customer/customer.component';
 import { InvoiceComponent } from './practiceclass/componentcomm/invoice/invoice.component';
+import { FormgroupComponent } from './practiceclass/reactiveforms/formgroup/formgroup.component';
+import { FormbuilderComponent } from './practiceclass/reactiveforms/formbuilder/formbuilder.component';
+import { OrderfromComponent } from './practiceclass/reactiveforms/orderfrom/orderfrom.component';
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -46,7 +49,10 @@ const myRoutes = [
     RestapiComponent,
     OrderComponent,
     CustomerComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    FormgroupComponent,
+    FormbuilderComponent,
+    OrderfromComponent
   ],
   imports: [
     BrowserModule,
