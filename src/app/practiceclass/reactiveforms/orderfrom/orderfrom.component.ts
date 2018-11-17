@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import {
   FormGroup,
   FormControl,
@@ -7,15 +7,14 @@ import {
   FormArray
 } from "@angular/forms";
 
-
 @Component({
-  selector: 'app-orderfrom',
-  templateUrl: './orderfrom.component.html',
-  styleUrls: ['./orderfrom.component.css']
+  selector: "app-orderfrom",
+  templateUrl: "./orderfrom.component.html",
+  styleUrls: ["./orderfrom.component.css"]
 })
 export class OrderfromComponent implements OnInit {
   accountRegistrationForm: FormGroup;
-  cartItems : FormArray;
+  cartItems: FormArray;
   constructor(private fromBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -27,10 +26,9 @@ export class OrderfromComponent implements OnInit {
    */
 
   buildForm() {
+    // this.cartItems = this.fromBuilder.array([new FormControl()]);
 
-   // this.cartItems = this.fromBuilder.array([new FormControl()]);
-
-   this.cartItems = new FormArray([this.getNewItemRow()]);
+    this.cartItems = new FormArray([this.getNewItemRow()]);
 
     this.accountRegistrationForm = this.fromBuilder.group({
       firstName: ["", Validators.required],
@@ -40,7 +38,7 @@ export class OrderfromComponent implements OnInit {
         country: [""],
         pin: [""]
       }),
-      items : this.cartItems
+      items: this.cartItems
     });
 
     // new FormGroup({
@@ -72,21 +70,22 @@ export class OrderfromComponent implements OnInit {
   }
 
   getNewItemRow() {
-      return   this.fromBuilder.group({
-        itemName : ["item name", Validators.required],
-        quantity : ["5", Validators.required],
-        description : ["desc"]});
+    return this.fromBuilder.group({
+      itemName: ["item name", Validators.required],
+      quantity: ["5", Validators.required],
+      description: ["desc"]
+    });
   }
 
   handleDelteItem() {
     console.log("delete item called " + this.cartItems.length);
     if (this.cartItems.length > 1) {
-      this.cartItems.removeAt(2);//this.cartItems.length-1);
+      this.cartItems.removeAt(2); //this.cartItems.length-1);
     }
   }
 
   handleDelteItem(i) {
     console.log("delete item called " + i);
-    this.cartItems.removeAt(i);//this.cartItems.length-1);
+    this.cartItems.removeAt(i); //this.cartItems.length-1);
   }
 }

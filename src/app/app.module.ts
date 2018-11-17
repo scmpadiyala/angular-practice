@@ -31,7 +31,7 @@ const myRoutes = [
   { path: "login/mainbody", component: MainbodyComponent },
   // { path: "order/:ordId", component: ReactiveformsComponent },
   { path: "order", component: ReactiveformsComponent },
-  { path: "users", component: RestapiComponent }
+  { path: "users", component: RestapiComponent },
   { path: "invoice", component: InvoiceComponent }
 ];
 
