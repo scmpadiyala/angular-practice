@@ -31,7 +31,7 @@ export class FormgroupComponent implements OnInit {
     console.log("From Data : " + JSON.stringify(accountData));
     console.log("From Data : " + accountData.firstName);
     console.log("From Data : " + accountData.lastName);
-    address = this.accountRegistrationForm.get("address");
+    let address = this.accountRegistrationForm.get("address");
     console.log("From Data : " + address.get("street"));
     console.log("From Data : " + accountData.address.street);
   }

@@ -1,5 +1,5 @@
 export class Order {
-  orderid: "001";
+  orderid;
   orderName: "orderData.orderName";
   customerName: "orderData.customerName";
   orderStatus: "new";

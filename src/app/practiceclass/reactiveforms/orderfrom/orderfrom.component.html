@@ -1,46 +1,61 @@
 <div>
-    <h3>Order Registration From</h3>
-    <form
-      [formGroup]="accountRegistrationForm"
-      (ngSubmit)="handleAccountRegistration(accountRegistrationForm.value)"
-    >
-      <label>
-        First Name : <input type="text" formControlName="firstName" />
-      </label>
-      <br />
-      <label>
-        Last Name : <input type="text" formControlName="lastName" />
-      </label>
-      <br />
-      <div formGroupName="address">
-        <label> Street : <input type="text" formControlName="street" /> </label>
-        <label> Country : <input type="text" formControlName="country" /> </label>
-        <label> Pin : <input type="text" formControlName="pin" /> </label>
-      </div>
-  
-      <div>
-        <h3>Order Items</h3>
-        <button (click)="handleAddItem()">Add Item</button>
-        <button (click)="handleDelteItem()">Delete Item</button> <br />
-        <label> Item Name </label>
-        <label> Quantity </label>
-        <label> Special inputs </label>
-        <div formArrayName="items">
-          <div *ngFor="let cartItem of cartItems.controls; let i = index">
-            <div [formGroup]="cartItem" >
-              <button (click)="handleDelteItem(i)"> X </button>
-              <input type="text" formControlName="itemName" />
-              <input type="text" formControlName="quantity" />
-              <input type="text" formControlName="description" />
-            </div>
+  <h3>Order Registration From</h3>
+  <form
+    [formGroup]="accountRegistrationForm"
+    (ngSubmit)="handleAccountRegistration(accountRegistrationForm.value)"
+  >
+    <label>
+      First Name : <input type="text" formControlName="firstName" />
+    </label>
+    <br />
+    <label>
+      Last Name : <input type="text" formControlName="lastName" />
+    </label>
+    <br />
+    <div formGroupName="address">
+      <label> Street : <input type="text" formControlName="street" /> </label>
+      <label> Country : <input type="text" formControlName="country" /> </label>
+      <label> Pin : <input type="text" formControlName="pin" /> </label>
+    </div>
+
+    <div>
+      <h3>Order Items</h3>
+      <button (click)="handleAddItem()">Add Item</button>
+      <button (click)="handleDelteItem()">Delete Item</button> <br />
+      <label> Item Name </label> <label> Quantity </label>
+      <label> Special inputs </label>
+
+      <div formArrayName="items">
+        <div *ngFor="let cartItem of cartItems.controls; let i = index">
+          <div [formGroup]="cartItem">
+            <button (click)="handleDelteItem(i)">X</button>
+            <input type="text" formControlName="itemName" />
+            <input type="text" formControlName="quantity" />
+            <input type="text" formControlName="description" />
           </div>
         </div>
       </div>
-      <input
-        type="submit"
-        [disabled]="!accountRegistrationForm.valid"
-        value="Register Account"
-      />
-    </form>
-  </div>
-  
+    </div>
+    <div *ngIf="!accountRegistrationForm.valid">
+      Error : Sufficient Data not available
+
+      <div *ngIf="accountRegistrationForm.controls.firstName.errors.required">
+        First Name cannot be empty
+      </div>
+
+      <div
+        *ngIf="
+          accountRegistrationForm.controls.firstName.dirty &&
+          accountRegistrationForm.controls.firstName.errors.minlength
+        "
+      >
+        First Name should be min 5 char
+      </div>
+    </div>
+    <input
+      type="submit"
+      [disabled]="!accountRegistrationForm.valid"
+      value="Register Account"
+    />
+  </form>
+</div>

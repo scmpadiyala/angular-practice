@@ -24,6 +24,7 @@ import { InvoiceComponent } from './practiceclass/componentcomm/invoice/invoice.
 import { FormgroupComponent } from './practiceclass/reactiveforms/formgroup/formgroup.component';
 import { FormbuilderComponent } from './practiceclass/reactiveforms/formbuilder/formbuilder.component';
 import { OrderfromComponent } from './practiceclass/reactiveforms/orderfrom/orderfrom.component';
+import { NgforsampleComponent } from './ajay_practice/ngforsample/ngforsample.component';
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -52,7 +53,8 @@ const myRoutes = [
     InvoiceComponent,
     FormgroupComponent,
     FormbuilderComponent,
-    OrderfromComponent
+    OrderfromComponent,
+    NgforsampleComponent
   ],
   imports: [
     BrowserModule,

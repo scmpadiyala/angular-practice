@@ -6,16 +6,21 @@ import {
   FormBuilder,
   FormArray
 } from "@angular/forms";
+import { ItemlistService } from "../itemlist.service";
 
 @Component({
   selector: "app-orderfrom",
   templateUrl: "./orderfrom.component.html",
-  styleUrls: ["./orderfrom.component.css"]
+  styleUrls: ["./orderfrom.component.css"],
+  providers: [ItemlistService]
 })
 export class OrderfromComponent implements OnInit {
   accountRegistrationForm: FormGroup;
   cartItems: FormArray;
-  constructor(private fromBuilder: FormBuilder) {}
+  constructor(
+    private fromBuilder: FormBuilder,
+    private listService: ItemlistService
+  ) {}
 
   ngOnInit() {
     this.buildForm();
@@ -28,10 +33,10 @@ export class OrderfromComponent implements OnInit {
   buildForm() {
     // this.cartItems = this.fromBuilder.array([new FormControl()]);
 
-    this.cartItems = new FormArray([this.getNewItemRow()]);
+    this.cartItems = this.listService.getListItemArray();
 
     this.accountRegistrationForm = this.fromBuilder.group({
-      firstName: ["", Validators.required],
+      firstName: ["", [Validators.required, Validators.minLength(5)]],
       lastName: [""],
       address: this.fromBuilder.group({
         street: [""],
@@ -64,8 +69,9 @@ export class OrderfromComponent implements OnInit {
 
   handleAddItem() {
     console.log("Add Item called");
-    this.cartItems.push(this.getNewItemRow());
+    // this.cartItems.push(this.getNewItemRow());
 
+    this.listService.handleAddItem();
     console.log("Add Item ended");
   }
 
@@ -77,12 +83,12 @@ export class OrderfromComponent implements OnInit {
     });
   }
 
-  handleDelteItem() {
-    console.log("delete item called " + this.cartItems.length);
-    if (this.cartItems.length > 1) {
-      this.cartItems.removeAt(2); //this.cartItems.length-1);
-    }
-  }
+  // handleDelteItem() {
+  //   console.log("delete item called " + this.cartItems.length);
+  //   if (this.cartItems.length > 1) {
+  //     this.cartItems.removeAt(2); //this.cartItems.length-1);
+  //   }
+  // }
 
   handleDelteItem(i) {
     console.log("delete item called " + i);
