@@ -25,6 +25,8 @@ import { FormgroupComponent } from './practiceclass/reactiveforms/formgroup/form
 import { FormbuilderComponent } from './practiceclass/reactiveforms/formbuilder/formbuilder.component';
 import { OrderfromComponent } from './practiceclass/reactiveforms/orderfrom/orderfrom.component';
 import { NgforsampleComponent } from './ajay_practice/ngforsample/ngforsample.component';
+import { PipesampleComponent } from './practiceclass/pipes/pipesample/pipesample.component';
+import { RevesePipe } from './practiceclass/pipes/revese.pipe';
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -54,7 +56,9 @@ const myRoutes = [
     FormgroupComponent,
     FormbuilderComponent,
     OrderfromComponent,
-    NgforsampleComponent
+    NgforsampleComponent,
+    PipesampleComponent,
+    RevesePipe
   ],
   imports: [
     BrowserModule,

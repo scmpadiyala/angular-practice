@@ -1,0 +1,26 @@
+<div>
+  <h1>Basic Pipes</h1>
+
+  <!-- Pipe ==> Passing the parameter to pipe : Chain -->
+  <p>Total Amount : {{ totalamount | currency: "INR" }}</p>
+
+  <input [value]="totalamount | currency: 'INR'" />
+
+  <p>Date of Joining : {{ dateOfJoining | date: "EEE" | uppercase }}</p>
+
+  <h1>Custom Pipe example</h1>
+
+  <p>Student Ids array : {{ stdids }}</p>
+
+  <p>Student Ids array with reverse pipe : {{ stdids | reverse }}</p>
+
+  <h1>Change detection</h1>
+
+  <p>Student Name : {{ stdName }}</p>
+
+  <input type="text" (change)="handleTextChange($event)" />
+
+  <h1>Pure and Impure Pipes</h1>
+  Add Id to Student IDs
+  <input type="text" (change)="handleStdIdAddition($event)" />
+</div>
