@@ -1,0 +1,20 @@
+<div>
+  Visible Tag : <input type="text" (change)="handleChange($event)" />
+
+  <ol>
+    <li>
+      Project Over view <br />
+      This project is of type reasearch ..... with a title of
+    </li>
+    <li *appVisible="visibility"><b>Hi I am visible </b></li>
+    <li>Benefits of this project</li>
+
+    <!-- <p [appHighlight]="newColor">This is a directive with color</p> -->
+
+    <br>
+    Change Color : <input type="text" (change)="handleChangeColor($event)" />
+
+    <br>
+    <p [appHighlight]="newColor">This is a directive with color</p>
+  </ol>
+</div>

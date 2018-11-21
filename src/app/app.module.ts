@@ -27,6 +27,10 @@ import { OrderfromComponent } from './practiceclass/reactiveforms/orderfrom/orde
 import { NgforsampleComponent } from './ajay_practice/ngforsample/ngforsample.component';
 import { PipesampleComponent } from './practiceclass/pipes/pipesample/pipesample.component';
 import { RevesePipe } from './practiceclass/pipes/revese.pipe';
+import { SampledirectiveComponent } from './practiceclass/directives/sampledirective/sampledirective.component';
+
+import { VisibleDirective } from './practiceclass/directives/visible.directive';
+import { HighlightDirective } from './practiceclass/directives/highlight.directive';
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -58,7 +62,10 @@ const myRoutes = [
     OrderfromComponent,
     NgforsampleComponent,
     PipesampleComponent,
-    RevesePipe
+    RevesePipe,
+    SampledirectiveComponent,
+    VisibleDirective,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
