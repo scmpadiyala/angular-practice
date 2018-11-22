@@ -31,6 +31,7 @@ import { SampledirectiveComponent } from './practiceclass/directives/sampledirec
 
 import { VisibleDirective } from './practiceclass/directives/visible.directive';
 import { HighlightDirective } from './practiceclass/directives/highlight.directive';
+import { TemplateformsComponent } from './practiceclass/templateforms/templateforms.component';
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -65,7 +66,8 @@ const myRoutes = [
     RevesePipe,
     SampledirectiveComponent,
     VisibleDirective,
-    HighlightDirective
+    HighlightDirective,
+    TemplateformsComponent
   ],
   imports: [
     BrowserModule,

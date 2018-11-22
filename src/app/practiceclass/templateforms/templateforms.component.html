@@ -1,0 +1,47 @@
+<div>
+  <h1>Template Driven Froms - Student Registration From</h1>
+
+  <form
+    (ngSubmit)="handleSubmitForm(studentRegForm.value)"
+    #studentRegForm="ngForm"
+  >
+    Student Name :
+    <input
+      type="text"
+      name="sname"
+      [(ngModel)]="curStudent.studentName"
+      #stdName="ngModel"
+      required
+      minlength="5"
+    />
+
+    <div>
+      Touched : {{ stdName.touched }} | Un Touched : {{ stdName.untouched }} |
+      <br />
+      Dirty : {{ stdName.dirty }} | Not Changed / Pristine :
+      {{ stdName.pristine }} <br />
+      | Valid : {{ stdName.valid }} | Invalid : {{ stdName.invalid }} |
+    </div>
+
+    <div [hidden]="stdName.untouched && stdName.invalid">
+      <br />Student Name is required and min length should be 5
+    </div>
+
+    <br />
+    Student Contact :
+    <input
+      type="text"
+      name="scontact"
+      [(ngModel)]="curStudent.studentContact"
+      #stdContact="ngModel"
+    />
+
+    <br />
+    <br />
+    <input
+      type="submit"
+      value="Submit Registration"
+      [disabled]="studentRegForm.invalid"
+    />
+  </form>
+</div>
