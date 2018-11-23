@@ -18,20 +18,22 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { DBConfig } from "./practiceclass/services/DBConfig";
-import { OrderComponent } from './practiceclass/componentcomm/io/order/order.component';
-import { CustomerComponent } from './practiceclass/componentcomm/io/customer/customer.component';
-import { InvoiceComponent } from './practiceclass/componentcomm/invoice/invoice.component';
-import { FormgroupComponent } from './practiceclass/reactiveforms/formgroup/formgroup.component';
-import { FormbuilderComponent } from './practiceclass/reactiveforms/formbuilder/formbuilder.component';
-import { OrderfromComponent } from './practiceclass/reactiveforms/orderfrom/orderfrom.component';
-import { NgforsampleComponent } from './ajay_practice/ngforsample/ngforsample.component';
-import { PipesampleComponent } from './practiceclass/pipes/pipesample/pipesample.component';
-import { RevesePipe } from './practiceclass/pipes/revese.pipe';
-import { SampledirectiveComponent } from './practiceclass/directives/sampledirective/sampledirective.component';
+import { OrderComponent } from "./practiceclass/componentcomm/io/order/order.component";
+import { CustomerComponent } from "./practiceclass/componentcomm/io/customer/customer.component";
+import { InvoiceComponent } from "./practiceclass/componentcomm/invoice/invoice.component";
+import { FormgroupComponent } from "./practiceclass/reactiveforms/formgroup/formgroup.component";
+import { FormbuilderComponent } from "./practiceclass/reactiveforms/formbuilder/formbuilder.component";
+import { OrderfromComponent } from "./practiceclass/reactiveforms/orderfrom/orderfrom.component";
+import { NgforsampleComponent } from "./ajay_practice/ngforsample/ngforsample.component";
+import { PipesampleComponent } from "./practiceclass/pipes/pipesample/pipesample.component";
+import { RevesePipe } from "./practiceclass/pipes/revese.pipe";
+import { SampledirectiveComponent } from "./practiceclass/directives/sampledirective/sampledirective.component";
 
-import { VisibleDirective } from './practiceclass/directives/visible.directive';
-import { HighlightDirective } from './practiceclass/directives/highlight.directive';
-import { TemplateformsComponent } from './practiceclass/templateforms/templateforms.component';
+import { VisibleDirective } from "./practiceclass/directives/visible.directive";
+import { HighlightDirective } from "./practiceclass/directives/highlight.directive";
+import { TemplateformsComponent } from "./practiceclass/templateforms/templateforms.component";
+import { AnimationsComponent } from "./practiceclass/animations/animations.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -67,16 +69,18 @@ const myRoutes = [
     SampledirectiveComponent,
     VisibleDirective,
     HighlightDirective,
-    TemplateformsComponent
+    TemplateformsComponent,
+    AnimationsComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(myRoutes),
     HttpClientModule,
     AngularFireModule.initializeApp(DBConfig.config),
-    AngularFireDatabaseModule,
+    AngularFireDatabaseModule
   ],
   providers: [StudentManagementService],
   bootstrap: [AppComponent]

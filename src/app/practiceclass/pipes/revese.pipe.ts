@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { start } from "repl";
+//import { start } from "repl";
 
 @Pipe({
-  name: "reverse",
+  name: "reverse"
   //pure: false
 })
 export class RevesePipe implements PipeTransform {
