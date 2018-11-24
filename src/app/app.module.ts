@@ -34,6 +34,19 @@ import { HighlightDirective } from "./practiceclass/directives/highlight.directi
 import { TemplateformsComponent } from "./practiceclass/templateforms/templateforms.component";
 import { AnimationsComponent } from "./practiceclass/animations/animations.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { I18nhomeComponent } from './practiceclass/i18n/i18nhome/i18nhome.component';
+import { I18AboutComponent } from './practiceclass/i18n/i18-home/i18-home.component';
+import { I18ContactComponent } from './practiceclass/i18n/i18-contact/i18-contact.component';
+
+//i18N translate required API
+import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-translate";
+import { Http } from "@angular/http";
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, "./assets/i18n", ".json");
+ }
+
+// i18N end
 
 const myRoutes = [
   { path: "home", component: HomeComponent },
@@ -42,7 +55,9 @@ const myRoutes = [
   // { path: "order/:ordId", component: ReactiveformsComponent },
   { path: "order", component: ReactiveformsComponent },
   { path: "users", component: RestapiComponent },
-  { path: "invoice", component: InvoiceComponent }
+  { path: "invoice", component: InvoiceComponent,
+  {path: "i18nhome", component : I18AboutComponent},
+  {path: "i18ncontact", component: I18ContactComponent}
 ];
 
 @NgModule({
@@ -70,7 +85,10 @@ const myRoutes = [
     VisibleDirective,
     HighlightDirective,
     TemplateformsComponent,
-    AnimationsComponent
+    AnimationsComponent,
+    I18nhomeComponent,
+    I18AboutComponent,
+    I18ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +98,9 @@ const myRoutes = [
     RouterModule.forRoot(myRoutes),
     HttpClientModule,
     AngularFireModule.initializeApp(DBConfig.config),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    TranslateModule.forRoot({provide: TranslateLoader,
+      useFactory: createTranslateLoader, deps: [Http]}) 
   ],
   providers: [StudentManagementService],
   bootstrap: [AppComponent]

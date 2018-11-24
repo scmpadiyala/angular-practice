@@ -1,0 +1,17 @@
+<div>
+  <h1>Internationalization Example</h1>
+
+  <a routerLink="i18nhome"> About</a> |
+  <a routerLink="i18ncontact"> Contact</a> ||
+
+  <select name="langSelect" (change)="handleLangChange($event)">
+    <option value="en"> English</option>
+    <option value="ja"> Japanese</option>
+    <option value="cn"> Chinese</option>
+    <option value="fr"> France</option>
+  </select>
+
+  <hr />
+
+  <router-outlet></router-outlet>
+</div>
