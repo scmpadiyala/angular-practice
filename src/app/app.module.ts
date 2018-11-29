@@ -41,6 +41,11 @@ import { I18ContactComponent } from './practiceclass/i18n/i18-contact/i18-contac
 //i18N translate required API
 import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-translate";
 import { Http } from "@angular/http";
+import { PipesComponent } from './var_practice/pipes/pipes.component';
+import { PipesPipe } from './var_practice/pipes.pipe';
+import { Sample1Component } from './practiceclass/styles/sample1/sample1.component';
+import { SampleStyleComponent } from './practiceclass/styles/sample/sample.component';
+import { Child1Component } from './practiceclass/styles/child1/child1.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, "./assets/i18n", ".json");
@@ -88,7 +93,12 @@ const myRoutes = [
     AnimationsComponent,
     I18nhomeComponent,
     I18AboutComponent,
-    I18ContactComponent
+    I18ContactComponent,
+    PipesComponent,
+    PipesPipe,
+    SampleStyleComponent,
+    Sample1Component,
+    Child1Component
   ],
   imports: [
     BrowserModule,

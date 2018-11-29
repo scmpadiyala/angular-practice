@@ -1,0 +1,23 @@
+<div>
+  <h3>Pipes Sample Practice</h3>
+
+  Total Amount : {{ totalAmount | currency: "INR" }} <br /><br />
+
+  <button (click)="incrementAmout()">Increment +100</button> <br /><br />
+  Current Date : {{ dob | date: "medium" | uppercase }}
+
+  <br />
+  <button (click)="handleRefreshTime()">Refresh Time</button>
+
+  <hr />
+  <h3>Custome Pipes</h3>
+
+  Student IDs : {{ studentIds }} <br />
+
+  Student IDS (Reverse Order) : {{ studentIds | var_reverse: "1":"15" }}
+  <br /><br />
+
+  <button (click)="addStdID()">Add ID</button>
+
+  Add Student ID : <input type="text" (change)="handleStudentID($event)" />
+</div>
