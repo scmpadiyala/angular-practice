@@ -46,6 +46,9 @@ import { PipesPipe } from './var_practice/pipes.pipe';
 import { Sample1Component } from './practiceclass/styles/sample1/sample1.component';
 import { SampleStyleComponent } from './practiceclass/styles/sample/sample.component';
 import { Child1Component } from './practiceclass/styles/child1/child1.component';
+import { LfhomeComponent } from './practiceclass/lifecycle/lfhome/lfhome.component';
+import { LfaboutComponent } from './practiceclass/lifecycle/lfabout/lfabout.component';
+import { LfcontactComponent } from './practiceclass/lifecycle/lfcontact/lfcontact.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, "./assets/i18n", ".json");
@@ -62,7 +65,9 @@ const myRoutes = [
   { path: "users", component: RestapiComponent },
   { path: "invoice", component: InvoiceComponent,
   {path: "i18nhome", component : I18AboutComponent},
-  {path: "i18ncontact", component: I18ContactComponent}
+  {path: "i18ncontact", component: I18ContactComponent},
+  {path : "lfabout", component : LfaboutComponent},
+  {path : "lfcontact", component : LfcontactComponent},
 ];
 
 @NgModule({
@@ -98,7 +103,10 @@ const myRoutes = [
     PipesPipe,
     SampleStyleComponent,
     Sample1Component,
-    Child1Component
+    Child1Component,
+    LfhomeComponent,
+    LfaboutComponent,
+    LfcontactComponent
   ],
   imports: [
     BrowserModule,

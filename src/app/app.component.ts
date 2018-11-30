@@ -7,5 +7,5 @@ import { Component, ViewEncapsulation } from "@angular/core";
   encapsulation: ViewEncapsulation.Emulated
 })
 export class AppComponent {
-  title = "angular-practice";
+  title = "angular-practice 1";
 }

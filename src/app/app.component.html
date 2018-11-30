@@ -32,10 +32,20 @@
   <!-- <app-animations></app-animations> -->
   <!-- <app-i18nhome></app-i18nhome> -->
   <!-- <app-pipes></app-pipes> -->
-  <div>
-    <app-parentstyle1> </app-parentstyle1>
-    <app-sample1> </app-sample1>
-  </div>
+  <!--
+    <div>
+      <app-parentstyle1> </app-parentstyle1>
+      <app-sample1> </app-sample1>
+    </div>
+  -->
+
+  Application Title : <input type="text" [(ngModel)]="title" />
+
+  <app-lfhome [parentTitle]="title"> 
+    
+    <app-lfabout></app-lfabout> 
+  
+  </app-lfhome>
 </div>
 
 <!-- <app-order-com></app-order-com> -->
