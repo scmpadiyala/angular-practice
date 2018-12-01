@@ -49,6 +49,9 @@ import { Child1Component } from './practiceclass/styles/child1/child1.component'
 import { LfhomeComponent } from './practiceclass/lifecycle/lfhome/lfhome.component';
 import { LfaboutComponent } from './practiceclass/lifecycle/lfabout/lfabout.component';
 import { LfcontactComponent } from './practiceclass/lifecycle/lfcontact/lfcontact.component';
+import { SamplemoduleModule } from "./practiceclass/samplemodule/samplemodule.module";
+import { AdmindetailsComponent } from "./practiceclass/samplemodule/admindetails/admindetails.component";
+// import { AdmissionComponent } from './practiceclass/admission/admission.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, "./assets/i18n", ".json");
@@ -68,6 +71,7 @@ const myRoutes = [
   {path: "i18ncontact", component: I18ContactComponent},
   {path : "lfabout", component : LfaboutComponent},
   {path : "lfcontact", component : LfcontactComponent},
+  {path : "admdetail", component : AdmindetailsComponent}
 ];
 
 @NgModule({
@@ -118,7 +122,8 @@ const myRoutes = [
     AngularFireModule.initializeApp(DBConfig.config),
     AngularFireDatabaseModule,
     TranslateModule.forRoot({provide: TranslateLoader,
-      useFactory: createTranslateLoader, deps: [Http]}) 
+      useFactory: createTranslateLoader, deps: [Http]}),
+      SamplemoduleModule
   ],
   providers: [StudentManagementService],
   bootstrap: [AppComponent]
