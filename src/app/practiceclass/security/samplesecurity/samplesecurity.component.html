@@ -1,0 +1,25 @@
+<div>
+  <h2>Inner HTML Safetty Test</h2>
+  <hr />
+  <h3>Binding innerHTML</h3>
+  <p>Bound value:</p>
+  <p>{{ htmlSnippet }}</p>
+
+  <br />
+
+  <p>Result of binding to innerHTML:</p>
+  <p [innerHTML]="htmlSnippet"></p>
+
+  <br />
+
+  <p>Result of binding to secure innerHTML:</p>
+  <p [innerHTML]="securehtmlsnippet"></p>
+
+  <hr />
+  <h2>URL Safety test</h2>
+
+  <h4>An untrusted URL:</h4>
+  <p><a [href]="sampleUrl">Click me</a></p>
+  <h4>A trusted URL:</h4>
+   <p><a [href]="trustedUrl">Click me</a></p>
+</div>

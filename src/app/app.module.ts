@@ -34,28 +34,36 @@ import { HighlightDirective } from "./practiceclass/directives/highlight.directi
 import { TemplateformsComponent } from "./practiceclass/templateforms/templateforms.component";
 import { AnimationsComponent } from "./practiceclass/animations/animations.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { I18nhomeComponent } from './practiceclass/i18n/i18nhome/i18nhome.component';
-import { I18AboutComponent } from './practiceclass/i18n/i18-home/i18-home.component';
-import { I18ContactComponent } from './practiceclass/i18n/i18-contact/i18-contact.component';
+import { I18nhomeComponent } from "./practiceclass/i18n/i18nhome/i18nhome.component";
+import { I18AboutComponent } from "./practiceclass/i18n/i18-home/i18-home.component";
+import { I18ContactComponent } from "./practiceclass/i18n/i18-contact/i18-contact.component";
 
 //i18N translate required API
-import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-translate";
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateStaticLoader
+} from "ng2-translate";
 import { Http } from "@angular/http";
-import { PipesComponent } from './var_practice/pipes/pipes.component';
-import { PipesPipe } from './var_practice/pipes.pipe';
-import { Sample1Component } from './practiceclass/styles/sample1/sample1.component';
-import { SampleStyleComponent } from './practiceclass/styles/sample/sample.component';
-import { Child1Component } from './practiceclass/styles/child1/child1.component';
-import { LfhomeComponent } from './practiceclass/lifecycle/lfhome/lfhome.component';
-import { LfaboutComponent } from './practiceclass/lifecycle/lfabout/lfabout.component';
-import { LfcontactComponent } from './practiceclass/lifecycle/lfcontact/lfcontact.component';
+import { PipesComponent } from "./var_practice/pipes/pipes.component";
+import { PipesPipe } from "./var_practice/pipes.pipe";
+import { Sample1Component } from "./practiceclass/styles/sample1/sample1.component";
+import { SampleStyleComponent } from "./practiceclass/styles/sample/sample.component";
+import { Child1Component } from "./practiceclass/styles/child1/child1.component";
+import { LfhomeComponent } from "./practiceclass/lifecycle/lfhome/lfhome.component";
+import { LfaboutComponent } from "./practiceclass/lifecycle/lfabout/lfabout.component";
+import { LfcontactComponent } from "./practiceclass/lifecycle/lfcontact/lfcontact.component";
 import { SamplemoduleModule } from "./practiceclass/samplemodule/samplemodule.module";
 import { AdmindetailsComponent } from "./practiceclass/samplemodule/admindetails/admindetails.component";
+import { SamplesecurityComponent } from "./practiceclass/security/samplesecurity/samplesecurity.component";
+import { StdcontactComponent } from "./practiceclass/testcomp/stdcontact/stdcontact.component";
+import { StdhomeComponent } from "./practiceclass/testcomp/stdhome/stdhome.component";
+
 // import { AdmissionComponent } from './practiceclass/admission/admission.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, "./assets/i18n", ".json");
- }
+}
 
 // i18N end
 
@@ -66,12 +74,17 @@ const myRoutes = [
   // { path: "order/:ordId", component: ReactiveformsComponent },
   { path: "order", component: ReactiveformsComponent },
   { path: "users", component: RestapiComponent },
-  { path: "invoice", component: InvoiceComponent,
-  {path: "i18nhome", component : I18AboutComponent},
-  {path: "i18ncontact", component: I18ContactComponent},
-  {path : "lfabout", component : LfaboutComponent},
-  {path : "lfcontact", component : LfcontactComponent},
-  {path : "admdetail", component : AdmindetailsComponent}
+  { path: "invoice", component: InvoiceComponent },
+  { path: "i18nhome", component: I18AboutComponent },
+  { path: "i18ncontact", component: I18ContactComponent },
+  { path: "lfabout", component: LfaboutComponent },
+  { path: "lfcontact", component: LfcontactComponent },
+  { path: "admdetail", component: AdmindetailsComponent },
+  { path: "stdhome", component: StdhomeComponent },
+  { path: "stdcontact", component: StdcontactComponent }
+  { path : "neworder", loadChildren : "./practiceclass/routingadvanced/order/order.module#OrderModule"},
+  { path : "newcust", loadChildren : "./practiceclass/routingadvanced/customer/customer.module#CustomerModule"},
+  // { path : "listcust", loadChild : "./practiceclass/routingadvanced/customer/customer.module#CustomerModule"},
 ];
 
 @NgModule({
@@ -110,7 +123,10 @@ const myRoutes = [
     Child1Component,
     LfhomeComponent,
     LfaboutComponent,
-    LfcontactComponent
+    LfcontactComponent,
+    SamplesecurityComponent,
+    StdcontactComponent,
+    StdhomeComponent
   ],
   imports: [
     BrowserModule,
@@ -119,11 +135,15 @@ const myRoutes = [
     ReactiveFormsModule,
     RouterModule.forRoot(myRoutes),
     HttpClientModule,
+    // RoutingadvancedModule,
     AngularFireModule.initializeApp(DBConfig.config),
     AngularFireDatabaseModule,
-    TranslateModule.forRoot({provide: TranslateLoader,
-      useFactory: createTranslateLoader, deps: [Http]}),
-      SamplemoduleModule
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: createTranslateLoader,
+      deps: [Http]
+    }),
+    SamplemoduleModule
   ],
   providers: [StudentManagementService],
   bootstrap: [AppComponent]

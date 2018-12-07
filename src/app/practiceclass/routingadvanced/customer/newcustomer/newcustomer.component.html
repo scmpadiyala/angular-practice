@@ -1,0 +1,20 @@
+<div>
+  New Customer Registation <br />
+
+  First Name : <input type="text" />
+
+  isDitry : <input type="text" [(ngModel)]="isDirty" />
+
+  <br />
+
+  <hr />
+  Today Offers :
+  <ol>
+    <li *ngFor="let offer of todayOffers">{{ offer.description }}</li>
+  </ol>
+
+  <hr />
+  <a routerLink="custlist"> Customer List</a> <br />
+
+  <router-outlet></router-outlet>
+</div>
