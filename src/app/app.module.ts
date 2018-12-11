@@ -58,6 +58,9 @@ import { AdmindetailsComponent } from "./practiceclass/samplemodule/admindetails
 import { SamplesecurityComponent } from "./practiceclass/security/samplesecurity/samplesecurity.component";
 import { StdcontactComponent } from "./practiceclass/testcomp/stdcontact/stdcontact.component";
 import { StdhomeComponent } from "./practiceclass/testcomp/stdhome/stdhome.component";
+import { CdparentComponent } from './practiceclass/changedetection/cdparent/cdparent.component';
+import { CdchildComponent } from './practiceclass/changedetection/cdchild/cdchild.component';
+import { ZonesampleComponent } from './practiceclass/zonetest/zonesample/zonesample.component';
 
 // import { AdmissionComponent } from './practiceclass/admission/admission.component';
 
@@ -81,7 +84,7 @@ const myRoutes = [
   { path: "lfcontact", component: LfcontactComponent },
   { path: "admdetail", component: AdmindetailsComponent },
   { path: "stdhome", component: StdhomeComponent },
-  { path: "stdcontact", component: StdcontactComponent }
+  { path: "stdcontact", component: StdcontactComponent },
   { path : "neworder", loadChildren : "./practiceclass/routingadvanced/order/order.module#OrderModule"},
   { path : "newcust", loadChildren : "./practiceclass/routingadvanced/customer/customer.module#CustomerModule"},
   // { path : "listcust", loadChild : "./practiceclass/routingadvanced/customer/customer.module#CustomerModule"},
@@ -126,7 +129,10 @@ const myRoutes = [
     LfcontactComponent,
     SamplesecurityComponent,
     StdcontactComponent,
-    StdhomeComponent
+    StdhomeComponent,
+    CdparentComponent,
+    CdchildComponent,
+    ZonesampleComponent
   ],
   imports: [
     BrowserModule,

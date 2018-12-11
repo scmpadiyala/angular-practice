@@ -7,7 +7,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./newcustomer.component.css"]
 })
 export class NewcustomerComponent implements OnInit {
-  isDirty = true;
+  isDirty = "true";
 
   todayOffers = [];
 

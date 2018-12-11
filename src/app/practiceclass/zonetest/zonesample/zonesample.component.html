@@ -1,0 +1,13 @@
+<div>
+  <h3>ZONE Sample</h3>
+
+  Pecentage Complete : {{ percentageProgress }}%
+
+  <input type="text" [(ngModel)]="percentageProgress" />
+
+  <br /><br />
+
+  <button (click)="handleinsideAngualrZone()">Process inside the zone</button>
+
+  <button (click)="handleoutsideAngualrZone()">Process outside the zone</button>
+</div>

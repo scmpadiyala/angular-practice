@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BindingPraticeComponent } from './binding-pratice.component';
+import { ZonesampleComponent } from './zonesample.component';
 
-describe('BindingPraticeComponent', () => {
-  let component: BindingPraticeComponent;
-  let fixture: ComponentFixture<BindingPraticeComponent>;
+describe('ZonesampleComponent', () => {
+  let component: ZonesampleComponent;
+  let fixture: ComponentFixture<ZonesampleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BindingPraticeComponent ]
+      declarations: [ ZonesampleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BindingPraticeComponent);
+    fixture = TestBed.createComponent(ZonesampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

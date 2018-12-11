@@ -33,7 +33,7 @@ export class GuardService
     nextState?: RouterStateSnapshot
   ): boolean {
     console.log("I am inside CanDeActivate" + component.isDirty);
-    if (component.isDirty == "false") {
+    if (component.isDirty === "false") {
       return confirm("Loose changes");
     }
     return true;

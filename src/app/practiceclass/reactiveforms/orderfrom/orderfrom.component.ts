@@ -83,12 +83,12 @@ export class OrderfromComponent implements OnInit {
     });
   }
 
-  // handleDelteItem() {
-  //   console.log("delete item called " + this.cartItems.length);
-  //   if (this.cartItems.length > 1) {
-  //     this.cartItems.removeAt(2); //this.cartItems.length-1);
-  //   }
-  // }
+  handleDelteItem1() {
+    console.log("delete item called " + this.cartItems.length);
+    if (this.cartItems.length > 1) {
+      this.cartItems.removeAt(2); //this.cartItems.length-1);
+    }
+  }
 
   handleDelteItem(i) {
     console.log("delete item called " + i);

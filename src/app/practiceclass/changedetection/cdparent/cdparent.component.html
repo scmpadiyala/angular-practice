@@ -1,0 +1,13 @@
+<div>
+  Student Name : {{ student.name }}
+
+  <input type="text" [(ngModel)]="student.name" />
+
+  <br /><br />
+
+  Student IDs : {{ stdid }} <br />
+
+  Add Std ID : <input type="text" (change)="handleAddStdid($event)" />
+
+  <app-cdchild [stdids]="stdid" [student]="student"> </app-cdchild>
+</div>

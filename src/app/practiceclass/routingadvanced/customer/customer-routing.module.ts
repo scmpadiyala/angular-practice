@@ -7,9 +7,10 @@ import { GuardService } from "../guard.service";
 const routes: Routes = [
   {
     path: "",
-    component: NewcustomerComponent, canActivate : [GuardService], 
-    canDeactivate : [GuardService],
-    resolve : {offers : GuardService}
+    component: NewcustomerComponent,
+    canActivate: [GuardService],
+    canDeactivate: [GuardService],
+    resolve: { offers: GuardService },
 
     children: [{ path: "custlist", component: ListcustomerComponent }]
   }

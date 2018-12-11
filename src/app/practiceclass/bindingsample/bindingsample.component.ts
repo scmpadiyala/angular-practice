@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./bindingsample.component.css"]
 })
 export class BindingsampleComponent implements OnInit {
-  private name = "Sample Project";
+  name = "Sample Project";
 
   defaultUserID = "10010";
   i = 0;
