@@ -61,6 +61,7 @@ import { StdhomeComponent } from "./practiceclass/testcomp/stdhome/stdhome.compo
 import { CdparentComponent } from './practiceclass/changedetection/cdparent/cdparent.component';
 import { CdchildComponent } from './practiceclass/changedetection/cdchild/cdchild.component';
 import { ZonesampleComponent } from './practiceclass/zonetest/zonesample/zonesample.component';
+import { AsyncsampleComponent } from './practiceclass/async/asyncsample/asyncsample.component';
 
 // import { AdmissionComponent } from './practiceclass/admission/admission.component';
 
@@ -132,7 +133,8 @@ const myRoutes = [
     StdhomeComponent,
     CdparentComponent,
     CdchildComponent,
-    ZonesampleComponent
+    ZonesampleComponent,
+    AsyncsampleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,34 @@
+<div>
+  <!--
+    Plain operations
+
+      User List : {{ userList | json }}
+
+    <br /><br />
+
+    User Names :
+
+    <ol>
+      <li *ngFor="let user of userList">{{ user.name }}</li>
+    </ol>
+  -->
+
+  <!-- Pipes in Control -->
+
+  Total Amount : {{ totalAmount | currency: "INR" }}
+
+  <br />
+  <input type="text" [value]="totalAmount | currency : 'INR'" />
+
+  <br /><br />
+  <!-- Async Operations using PIPE -->
+  User List : {{ userObserver | async | json }}
+
+  <br /><br />
+
+  User Names :
+
+  <ol>
+    <li *ngFor="let user of (userObserver | async)">{{ user.name }}</li>
+  </ol>
+</div>
