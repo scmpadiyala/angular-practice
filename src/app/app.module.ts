@@ -62,6 +62,7 @@ import { CdparentComponent } from './practiceclass/changedetection/cdparent/cdpa
 import { CdchildComponent } from './practiceclass/changedetection/cdchild/cdchild.component';
 import { ZonesampleComponent } from './practiceclass/zonetest/zonesample/zonesample.component';
 import { AsyncsampleComponent } from './practiceclass/async/asyncsample/asyncsample.component';
+import { CustomvalidationComponent } from './practiceclass/reactiveforms/customvalidation/customvalidation.component';
 
 // import { AdmissionComponent } from './practiceclass/admission/admission.component';
 
@@ -134,7 +135,8 @@ const myRoutes = [
     CdparentComponent,
     CdchildComponent,
     ZonesampleComponent,
-    AsyncsampleComponent
+    AsyncsampleComponent,
+    CustomvalidationComponent
   ],
   imports: [
     BrowserModule,
